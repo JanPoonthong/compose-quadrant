@@ -5,6 +5,7 @@ import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
 import androidx.compose.foundation.background
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -16,6 +17,7 @@ import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontWeight
@@ -43,10 +45,13 @@ fun ComposeCard(title: String, description: String, modifier: Modifier = Modifie
     Column(modifier = modifier
         .fillMaxSize()
         .background(backgroundColor)
-        .padding(16.dp)) {
+        .padding(16.dp),
+        verticalArrangement = Arrangement.Center
+    ) {
        Text(
            text = title,
-           fontWeight = FontWeight.Bold
+           fontWeight = FontWeight.Bold,
+           textAlign = TextAlign.Center
        )
         Text(
             text = description,
@@ -58,7 +63,7 @@ fun ComposeCard(title: String, description: String, modifier: Modifier = Modifie
 @Composable
 fun ComposeQuadrantApp() {
     Column(modifier = Modifier.fillMaxWidth()) {
-        Row(modifier = Modifier.weight(2f)) {
+        Row(modifier = Modifier.weight(1f)) {
             ComposeCard(title="Text composable", description="Displays text and follows the recommended Material Design guidelines.", backgroundColor = Color(0xFFEADDFF), modifier = Modifier.weight(1f))
             ComposeCard(title="Text composable", description="Displays text and follows the recommended Material Design guidelines.", backgroundColor = Color(0xFFD0BCFF), modifier = Modifier.weight(1f))
         }
